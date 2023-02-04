@@ -55,17 +55,21 @@ class Program
             .Select(data => new
             {
                 data.Title,
+
                 LastCommentDate = data.Comments
-                    .OrderBy(comment => comment.CreatedDate).LastOrDefault().CreatedDate,
+                    .OrderBy(comment => comment.CreatedDate)
+                    .LastOrDefault().CreatedDate.ToShortDateString(),
+
 				LastCommentContent = data.Comments
-                    .OrderBy(comment => comment.CreatedDate).LastOrDefault().Text
+                    .OrderBy(comment => comment.CreatedDate)
+                    .LastOrDefault().Text
 
             }).OrderBy(postInfo => postInfo.Title);
 
         foreach (var postContent in orderedPostsContent)
         {
             Console.WriteLine($"{postContent.Title}: " +
-                              $"{postContent.LastCommentDate.ToShortDateString()}, " +
+                              $"{postContent.LastCommentDate}, " +
                               $"{postContent.LastCommentContent}");
         }
 
