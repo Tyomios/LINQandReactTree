@@ -6,7 +6,8 @@ export class TreeNodeView extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            isSelected: false
+            isSelected: false,
+            tree: this.props.tree
         };
     }
 

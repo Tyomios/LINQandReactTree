@@ -31,7 +31,7 @@ export class Tree {
     }
 
     // remove all childs from node.
-    clearNode() {
+    clearTree() {
         this.rootNode.childs = [];
     }
 
