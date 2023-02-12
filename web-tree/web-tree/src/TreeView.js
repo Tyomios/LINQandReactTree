@@ -1,3 +1,8 @@
+import React from 'react';
+import './index.css';
+import { TreeNodeView } from './TreeNodeView';
+import { ControlPanel } from './ControlPanel';
+
 class TreeView extends React.Component {
     constructor(props) {
         super(props);
@@ -36,17 +41,21 @@ class TreeView extends React.Component {
         this.setState({tree: tree, selectedNodeName: name});
     }
 
+    handleNodeClick = (id, name) => {
+        this.setState({selectedNodeId: id, selectedNodeName: name});
+    }
+
     // Render tree nodes.
     render() {
         return (
             <div>
                 {this.props.tree.map((node, index) => {
-                    return <NodeView key={index} node={node} onNodeClick={this.handleNodeClick} />
+                    return <TreeNodeView key={index} node={node} onNodeClick={this.handleNodeClick} />
                 })}
                 <ControlPanel selectedNodeName={this.state.selectedNodeName}
                 onAddNode={() => this.handleAddNode}
                 onRemoveNode={() => this.handleRemoveNode}
-                onEditNode={() => this.handleEditNode}
+                onEditNode={(name) => this.handleEditNode}
                 onClearTree={() => this.handleClearTree}></ControlPanel>
             </div>
         );

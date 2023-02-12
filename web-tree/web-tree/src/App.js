@@ -1,5 +1,7 @@
 import './App.css';
-import { TreeNodeView } from './TreeNodeView';
+import React from 'react';
+import { TreeView } from './TreeView';
+import { Tree } from './Tree';
 
 function App() {
   let tree = new Tree(new Node(1, "root"));
