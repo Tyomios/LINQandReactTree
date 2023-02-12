@@ -1,15 +1,15 @@
 function ControlPanel(props) {
   return (<div>
     <button className="button-control"
-        onClick={() => { props.onAddNode() }}>
+        onClick={props.onAddNode}>
         Add
     </button>
     <button className="button-control"
-        onClick={() => { props.onRemoveNode() }}>
+        onClick={props.onRemoveNode}>
         Remove
     </button>
     <button className="button-control"
-        onClick={() => { props.onClearTree() }}>
+        onClick={props.onClearTree}>
         Reset
     </button>
     <label>Selected Node:</label>
