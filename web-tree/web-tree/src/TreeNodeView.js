@@ -1,6 +1,5 @@
 import React from 'react';
 import './index.css';
-import { TreeNode } from './TreeNode';
 
 // Component to display tree node data and and fire events.
 export class TreeNodeView extends React.Component{
@@ -23,12 +22,14 @@ export class TreeNodeView extends React.Component{
     render() {
         return (
             <div>
-                <div className="node" onClick={this.handleNodeClick}>
+                <div className="node" onClick={this.handleNodeSelect}>
                     {this.props.node.name}
                 </div>
-                {this.props.node.childs.map((node, index) => {
-                    return <TreeNodeView key={index} node={node} onNodeClick={this.props.onNodeClick} />
-                })}
+                <div className="childs">
+                    {this.props.node.childs.map((node) => {
+                        return <TreeNodeView node={node} onNodeClick={this.props.onNodeClick}></TreeNodeView>
+                    })}
+                </div>
             </div>
         );
     }

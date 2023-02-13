@@ -69,7 +69,6 @@ export class TreeView extends React.Component {
         }
 
         var root = this.state.tree.getRootNode();
-
         if (root === null) {
             return;
         }
