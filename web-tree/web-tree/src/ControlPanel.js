@@ -1,4 +1,6 @@
-function ControlPanel(props) {
+import React from 'react';
+
+export function ControlPanel(props) {
   return (<div>
     <button className="button-control"
         onClick={props.onAddNode}>

@@ -3,7 +3,7 @@ import './index.css';
 import { TreeNodeView } from './TreeNodeView';
 import { ControlPanel } from './ControlPanel';
 
-class TreeView extends React.Component {
+export class TreeView extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
