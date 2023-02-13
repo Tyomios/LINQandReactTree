@@ -5,7 +5,7 @@ import { Tree } from './Tree';
 import { TreeNode } from './TreeNode';
 
 function App() {
-  let tree = new Tree(new TreeNode(1, "root", []));
+  let tree = new Tree(new TreeNode(0, "root", []));
   return (
     <div className="App">
       <TreeView tree={tree}></TreeView>

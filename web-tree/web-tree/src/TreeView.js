@@ -15,9 +15,9 @@ export class TreeView extends React.Component {
 
     handleAddNode = () => {
         var tree = this.state.tree;
-        tree.addNode(new Node(1, "new node"), this.state.selectedNodeId);
+        tree.addNode(this.state.selectedNodeId);
 
-        this.setState({tree: tree});
+        this.setState({ tree: tree });
     }
 
     handleRemoveNode = () => {
@@ -37,8 +37,8 @@ export class TreeView extends React.Component {
     handleEditNode = (name) => {
         var tree = this.state.tree;
         tree.editNode(this.state.selectedNodeId, name);
-
-        this.setState({tree: tree, selectedNodeName: name});
+        console.log("in treeView: " + name);
+        this.setState({tree: tree, selectedNodeName:name});
     }
 
     handleNodeClick = (id, name) => {
@@ -51,10 +51,10 @@ export class TreeView extends React.Component {
             <div>
                 <this.RootNode></this.RootNode>
                 <ControlPanel selectedNodeName={this.state.selectedNodeName}
-                onAddNode={() => this.handleAddNode}
-                onRemoveNode={() => this.handleRemoveNode}
-                onEditNode={(name) => this.handleEditNode}
-                onClearTree={() => this.handleClearTree}></ControlPanel>
+                onAddNode={() => this.handleAddNode()}
+                onRemoveNode={() => this.handleRemoveNode()}
+                onEditNode={(name) => this.handleEditNode()}
+                onClearTree={() => this.handleClearTree()}></ControlPanel>
             </div>
         );
     }

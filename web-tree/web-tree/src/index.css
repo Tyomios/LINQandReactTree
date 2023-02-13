@@ -21,3 +21,30 @@ code {
   min-width: 50px;
   display: inline-block;
 }
+
+.node {
+  background-color: rgb(158, 21, 21);
+  color: aqua;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  margin: 5px;
+  min-width: 50px;
+  display: inline-block;
+}
+
+.node ::hover{
+  background-color: rgb(170, 40, 40);
+  color: aqua;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  margin: 5px;
+  cursor: pointer;
+  min-width: 50px;
+  display: inline-block;
+}
+
+.childs {
+  margin-left: 50px;
+}

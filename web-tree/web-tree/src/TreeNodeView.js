@@ -12,25 +12,38 @@ export class TreeNodeView extends React.Component{
     }
 
     // Handle click on node name.
-    // If node has childs, then expand/collapse node.
-    // If node has no childs, then fire event to parent component.
-    handleNodeSelect = (event) => {
+    handleNodeSelect = () => {
         this.props.onNodeClick(this.props.node.id, this.props.node.name);
     }
 
     // Render node name and childs.
     render() {
+
+        var childNodes = []
+        if (this.props.node.childs !== null
+            && typeof this.props.node.childs !== 'undefined'
+            && this.props.node.childs.length > 0) {
+            for (var i = 0; i < this.props.node.childs.length; i++) {
+                childNodes.push(this.renderChildNode(i));
+            }
+        }
+
         return (
             <div>
-                <div className="node" onClick={this.handleNodeSelect}>
+                <button className="node" onClick={this.handleNodeSelect}>
                     {this.props.node.name}
-                </div>
+                </button>
                 <div className="childs">
-                    {this.props.node.childs.map((node) => {
-                        return <TreeNodeView node={node} onNodeClick={this.props.onNodeClick}></TreeNodeView>
-                    })}
+                    {childNodes}
                 </div>
             </div>
+        );
+    }
+
+    renderChildNode(i) {
+        return (
+            <TreeNodeView node={this.props.node.childs[i]} 
+            onClick={() => this.props.onNodeClick(this.props.node.childs[i].id, this.props.node.childs[i].name)}></TreeNodeView>
         );
     }
 }

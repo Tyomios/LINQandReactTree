@@ -1,3 +1,5 @@
+import { TreeNode } from './TreeNode';
+
 export class Tree {
     constructor(rootNode) {
         this.rootNode = rootNode;
@@ -8,10 +10,13 @@ export class Tree {
     }
 
     // Add node to tree.
-    addNode(node, parentId) {
+    addNode(parentId) {
         let parentNode = this.findNodeById(parentId);
+        console.log("in tree: " + parentNode.id);
         if (parentNode) {
-            parentNode.childs.push(node);
+            let id = parentNode.childs.length + 1;
+            parentNode.childs.push(new TreeNode(id, "node " + id, []));
+            console.log("count: " + parentNode.childs.length);
         }
     }
 
