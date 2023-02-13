@@ -2,9 +2,10 @@ import './App.css';
 import React from 'react';
 import { TreeView } from './TreeView';
 import { Tree } from './Tree';
+import { TreeNode } from './TreeNode';
 
 function App() {
-  let tree = new Tree(new Node(1, "root"));
+  let tree = new Tree(new TreeNode(1, "root", []));
   return (
     <div className="App">
       <TreeView tree={tree}></TreeView>
