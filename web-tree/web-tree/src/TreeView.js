@@ -7,7 +7,7 @@ export class TreeView extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            tree: this.props.tree,
+            tree: props.tree,
             selectedNodeId: 0,
             selectedNodeName: ""
         };
@@ -49,9 +49,7 @@ export class TreeView extends React.Component {
     render() {
         return (
             <div>
-                {this.props.tree.map((node, index) => {
-                    return <TreeNodeView key={index} node={node} onNodeClick={this.handleNodeClick} />
-                })}
+                <this.RootNode></this.RootNode>
                 <ControlPanel selectedNodeName={this.state.selectedNodeName}
                 onAddNode={() => this.handleAddNode}
                 onRemoveNode={() => this.handleRemoveNode}
@@ -59,5 +57,23 @@ export class TreeView extends React.Component {
                 onClearTree={() => this.handleClearTree}></ControlPanel>
             </div>
         );
+    }
+
+    RootNode = () => {
+        return this.createRootNode();
+    }
+
+    createRootNode () {
+        if (this.state.tree === null) {
+            return;
+        }
+
+        var root = this.state.tree.getRootNode();
+
+        if (root === null) {
+            return;
+        }
+
+        return <TreeNodeView node={root} onNodeClick={this.handleNodeClick} />
     }
 }

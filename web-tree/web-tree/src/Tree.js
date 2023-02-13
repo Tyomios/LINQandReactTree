@@ -3,6 +3,10 @@ export class Tree {
         this.rootNode = rootNode;
     }
 
+    getRootNode() {
+        return this.rootNode;
+    }
+
     // Add node to tree.
     addNode(node, parentId) {
         let parentNode = this.findNodeById(parentId);
