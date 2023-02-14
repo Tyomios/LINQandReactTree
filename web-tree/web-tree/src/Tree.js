@@ -14,7 +14,9 @@ export class Tree {
         let parentNode = this.findNodeById(parentId);
         console.log("in tree: " + parentNode.id);
         if (parentNode) {
-            let id = parentNode.childs.length + 1;
+            let id = `${parentId}${parentNode.childs.length}`;
+            id = parseInt(id);
+            id++;
             parentNode.childs.push(new TreeNode(id, "node " + id, []));
             console.log("count: " + parentNode.childs.length);
         }
@@ -22,13 +24,24 @@ export class Tree {
 
     // Remove node from tree.
     removeNode(id) {
-        let parentNode = this.findParentNode(id);
+        var idAsString = id.toString();
+        console.log("idLength: " + idAsString.length);
+        var parentNodeId = parseInt(this.deleteLastChar(idAsString));
+        if (parentNodeId === "") {
+            parentNodeId = 0;
+        }
+        let parentNode = this.findNodeById(parentNodeId);
+        console.log("removed: " + parentNode);
         if (parentNode) {
             let index = parentNode.childs.findIndex(node => node.id === id);
             if (index !== -1) {
                 parentNode.childs.splice(index, 1);
             }
         }
+    }
+
+    deleteLastChar(str) {
+        return str.substring(0, str.length - 1);
     }
 
     // edit node in tree.
