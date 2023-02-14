@@ -53,7 +53,7 @@ export class TreeView extends React.Component {
                 <ControlPanel selectedNodeName={this.state.selectedNodeName}
                 onAddNode={() => this.handleAddNode()}
                 onRemoveNode={() => this.handleRemoveNode()}
-                onEditNode={(name) => this.handleEditNode()}
+                onEditNode={(name) => this.handleEditNode(name)}
                 onClearTree={() => this.handleClearTree()}></ControlPanel>
             </div>
         );

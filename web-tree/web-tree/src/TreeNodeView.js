@@ -12,8 +12,8 @@ export class TreeNodeView extends React.Component{
     }
 
     // Handle click on node name.
-    handleNodeSelect = () => {
-        this.props.onNodeClick(this.props.node.id, this.props.node.name);
+    handleNodeSelect(id, name) {
+        this.props.onNodeClick(id, name);
     }
 
     // Render node name and childs.
@@ -30,7 +30,7 @@ export class TreeNodeView extends React.Component{
 
         return (
             <div>
-                <button className="node" onClick={this.handleNodeSelect}>
+                <button className="node" onClick={() => this.props.onNodeClick(this.props.node.id, this.props.node.name)}>
                     {this.props.node.name}
                 </button>
                 <div className="childs">
@@ -42,8 +42,8 @@ export class TreeNodeView extends React.Component{
 
     renderChildNode(i) {
         return (
-            <TreeNodeView node={this.props.node.childs[i]} 
-            onClick={() => this.props.onNodeClick(this.props.node.childs[i].id, this.props.node.childs[i].name)}></TreeNodeView>
+            <TreeNodeView node={this.props.node.childs[i]} key={this.props.node.childs[i].id}
+            onNodeClick={(id, name) => this.handleNodeSelect(id, name)}></TreeNodeView>
         );
     }
 }
