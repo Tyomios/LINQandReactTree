@@ -22,9 +22,20 @@ code {
   display: inline-block;
 }
 
+.button-control {
+  background-color: rgb(32, 104, 227);
+  color: rgb(216, 223, 223);
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  margin: 5px;
+  min-width: 50px;
+  display: inline-block;
+}
+
 .node {
   background-color: rgb(158, 21, 21);
-  color: aqua;
+  color: rgb(216, 223, 223);
   border: 1px solid #ddd;
   border-radius: 4px;
   padding: 5px;
@@ -35,7 +46,7 @@ code {
 
 .node ::hover{
   background-color: rgb(170, 40, 40);
-  color: aqua;
+  color: rgb(216, 223, 223);
   border: 1px solid #ddd;
   border-radius: 4px;
   padding: 5px;

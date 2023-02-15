@@ -30,7 +30,7 @@ export class Tree {
         if (parentNodeId === "") {
             parentNodeId = 0;
         }
-        let parentNode = this.findNodeById(parentNodeId);
+        let parentNode = parentNodeId > 0 ? this.findNodeById(parentNodeId): this.rootNode;
         console.log("removed: " + parentNode);
         if (parentNode) {
             let index = parentNode.childs.findIndex(node => node.id === id);
